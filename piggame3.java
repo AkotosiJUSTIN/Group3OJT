@@ -1,75 +1,77 @@
 import java.util.*;
 
-public class piggame3 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        int player1Score = 0;
-        int player2Score = 0;
-        boolean player1Turn = true;
-        boolean gameOver = false;
+public class realpiggame {
 
-        System.out.println("Welcome to Pig game!");
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    Random dice = new Random();
+    boolean yourturn = true;
+    boolean gameover = false;
+    int you = 0;
+    int computer = 0;
+    int score = 0;
+    int roll;
 
-        while (!gameOver) {
-            int roundScore = 0;
-            int roll;
+    System.out.println("!!PIG GAME!!");
+    System.out.println("Score 100 first before the Computer to win!!");
 
-            System.out.println("Player " + (player1Turn ? "1" : "2") + "'s turn:");
+    while (!gameover) {
+      System.out.println((yourturn ? "Your " : "Computer ") + "turn:");
 
-            if (player1Turn) {
-                do {
-                    roll = random.nextInt(6) + 1;
+      if (yourturn) {
+        do {
+          roll = dice.nextInt(6) + 1;
 
-                    if (roll == 1) {
-                        System.out.println("You rolled a 1! Round score is 0.");
-                        roundScore = 0;
-                        break;
-                    }
+          if (roll == 1) {
+            System.out.println("You rolled a 1! Your score is 0.");
+            score = 0;
+            break;
+          }
 
-                    System.out.println("You rolled a " + roll + ".");
-                    roundScore += roll;
+          System.out.println("You rolled a " + roll + ".");
+          score += roll;
 
-                    if (player1Score + roundScore >= 100) {
-                        break;
-                    }
+          if (you + score >= 100) {
+            break;
+          }
 
-                    System.out.print("Roll again? (y/n): ");
-                } while (scanner.next().equalsIgnoreCase("y"));
+          System.out.print("Want to roll again? (Y(yes)/N(no)): ");
+        } while (input.next().equalsIgnoreCase("y"));
 
-                player1Score += roundScore;
-            } else {
-                do {
-                    roll = random.nextInt(6) + 1;
+        you += score;
+      } else {
+        do {
+          roll = dice.nextInt(6) + 1;
 
-                    if (roll == 1) {
-                        System.out.println("Computer rolled a 1! Round score is 0.");
-                        roundScore = 0;
-                        break;
-                    }
+          if (roll == 1) {
+            System.out.println("Computer rolled a 1! Computer's score is 0.");
+            score = 0;
+            break;
+          }
 
-                    System.out.println("Computer rolled a " + roll + ".");
-                    roundScore += roll;
+          System.out.println("Computer rolled a " + roll + ".");
+          score += roll;
 
-                    if (player2Score + roundScore >= 100) {
-                        break;
-                    }
+          if (computer + score >= 100) {
+            break;
+          }
+        } while (score < 25);
 
-                } while (roundScore < 20);
+        computer += score;
+      }
 
-                player2Score += roundScore;
-            }
+      System.out.println("Player 1 score: " + you);
+      System.out.println("Computer's score: " + computer);
 
-            System.out.println("Player 1 score: " + player1Score);
-            System.out.println("Player 2 score: " + player2Score);
-
-            if (player1Score >= 100 || player2Score >= 100) {
-                gameOver = true;
-            } else {
-                player1Turn = !player1Turn;
-            }
-        }
-
-        System.out.println("Game over! " + (player1Score >= 100 ? "Player 1" : "Computer") + " wins!");
+      if (you >= 100 || computer >= 100) {
+        gameover = true;
+      } else {
+        yourturn = !yourturn;
+      }
     }
+
+    System.out.println(
+      "Game Over! " + (you >= 100 ? "Player 1" : "Computer") + " wins!"
+    );
+  }
 }
