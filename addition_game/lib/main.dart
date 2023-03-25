@@ -46,6 +46,15 @@ class StartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 350,
+              child: Image.asset(
+                width: 350,
+                'images/plus1.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -56,13 +65,13 @@ class StartPage extends StatelessWidget {
               child: const Text('PLAY GAME'),
               style: ElevatedButton.styleFrom(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 35, horizontal: 50),
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
                 textStyle: const TextStyle(
                   letterSpacing: 3.0,
-                  fontSize: 35,
+                  fontSize: 30,
                   fontWeight: FontWeight.w900,
                 ),
                 primary: Colors.greenAccent,
