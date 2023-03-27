@@ -30,7 +30,7 @@ class StartPage extends StatelessWidget {
       backgroundColor: Colors.blue,
       appBar: AppBar(
         title: const Text(
-          'ADDITION GAME',
+          'SUM SOLVER',
           style: TextStyle(
             fontSize: 34,
             fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class StartPage extends StatelessWidget {
               height: 350,
               child: Image.asset(
                 width: 350,
-                'images/plus1.png',
+                'assets/images/add.png',
                 fit: BoxFit.fill,
               ),
             ),
@@ -195,7 +195,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisSize: MainAxisSize.max, // set mainAxisSize to max
           children: [
             Container(
-              height: 50, // increase height of top container
+              height: 5, // increase height of top container
               color: Colors.blue,
             ),
 
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
 
             // number pad
             Expanded(
-              flex: 2,
+              flex: 5,
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: GridView.builder(
@@ -256,6 +256,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        appBar: AppBar(centerTitle: true, title: Text('ADDITION GAME')));
+        appBar: AppBar(centerTitle: true, title: Text('SUM SOLVER')));
   }
 }
